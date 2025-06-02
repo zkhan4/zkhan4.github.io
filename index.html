@@ -1,0 +1,1989 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Portfolio</title>
+  
+   <!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- AOS Animation Library -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+
+  <!-- FIXED: Fully Responsive and Visible Header -->
+<style>
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+  font-family: 'DM Sans', sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* Fix for header visibility and layout */
+body {
+  margin: 0;
+  padding-top: 90px; /* Push content below the fixed header */
+  font-family: 'DM Sans', sans-serif;
+  background-color: #fff;
+  color: #111;
+  overflow-x: hidden;
+}
+
+/* Header */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(270deg, #ffffff, #e0f7fa, #ffffff);
+  background-size: 600% 600%;
+  animation: headerGradient 10s ease infinite;
+  z-index: 9999;
+  padding: 16px 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid #e0e0e0;
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo */
+.logo {
+  font-size: 28px;
+  font-weight: 800;
+  color: #1f1f5c;
+  font-family: 'Poppins', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  user-select: none;
+}
+
+/* Nav links */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.nav-links a {
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #1f1f5c;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+  background: #0488f5;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 255, 247, 0.4);
+}
+
+/* Hamburger Menu */
+.menu-toggle {
+  display: none;
+  font-size: 26px;
+  cursor: pointer;
+  color: #1f1f5c;
+}
+
+/* Mobile Menu */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    right: 10px;
+    background: white;
+    padding: 12px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 99999;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links a {
+    width: 100%;
+    padding: 10px 12px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .container {
+    flex-wrap: nowrap;
+  }
+}
+
+
+/* ===============================
+   About Section
+   - Full-width section with gradient background and light text
+=============================== */
+.about-section {
+  padding: 100px 20px;
+  background: linear-gradient(135deg, #04133b, #021c4c);
+  color: #e0f7ff;
+}
+
+/* ===============================
+   About Container
+   - Flex layout with glassmorphism effect
+   - Inner gradient border animation using ::before
+=============================== */
+.about-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  max-width: 1100px;
+  margin: auto;
+  padding: 60px 40px;
+  border-radius: 20px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(135deg, rgba(0, 60, 120, 0.3), rgba(255, 255, 255, 0.05));
+  backdrop-filter: blur(14px);
+  border: 3px solid transparent;
+  background-clip: padding-box;
+  position: relative;
+  z-index: 1;
+}
+
+/* ===============================
+   Animated Gradient Border (on container)
+   - Animates a colorful border glow around the card
+=============================== */
+.about-container::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(270deg, #00fff7, #9333ea, #1f7aec);
+  background-size: 600% 600%;
+  animation: animateAboutBorder 10s linear infinite;
+  z-index: -1;
+  border-radius: 20px;
+  padding: 4px;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: destination-out;
+}
+
+/* Border animation keyframes */
+@keyframes animateAboutBorder {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ===============================
+   About Text Section
+   - Responsive text with spacing and glow headings
+=============================== */
+.about-text {
+  flex: 1 1 500px;
+  font-family: 'Poppins', sans-serif;
+  padding: 20px;
+  line-height: 1.75;
+  color: #cceeff;
+}
+
+.about-text h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #00fff7;
+  font-weight: 800;
+  text-shadow: 0 0 8px rgba(0, 255, 247, 0.4);
+  letter-spacing: 0.5px;
+}
+
+.about-text p {
+  font-size: 17px;
+  color: #d0f0ff;
+  margin-bottom: 18px;
+  font-weight: 400;
+  letter-spacing: 0.2px;
+}
+
+/* ===============================
+   Download CV Button
+   - Animated hover glow effect with smooth sliding shimmer
+=============================== */
+.cv-button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 14px 30px;
+  background: linear-gradient(135deg, #00fff7, #1f7aec);
+  color: #0a0a0a;
+  font-weight: 700;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 12px;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  box-shadow: 0 0 20px rgba(0, 255, 247, 0.5);
+}
+
+/* Shimmer effect overlay */
+.cv-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: 0.4s;
+  z-index: 1;
+}
+
+/* Animate shimmer and glow on hover */
+.cv-button:hover::before {
+  left: 100%;
+}
+
+.cv-button:hover {
+  background: linear-gradient(135deg, #1f7aec, #00fff7);
+  color: #ffffff;
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(0, 255, 247, 0.7);
+}
+
+/* ===============================
+   About Image Section
+   - Displays profile image with shadow and hover scale effect
+=============================== */
+.about-image {
+  flex: 1 1 300px;
+  text-align: center;
+  margin-top: 60px; /* ✅ Try increasing this */
+  align-self: flex-start; /* Optional: aligns it with top of text */
+}
+
+
+.about-image img {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 16px;
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.5);
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+/* Image hover animation */
+.about-image img:hover {
+  transform: scale(1.05);
+}
+
+/* ===============================
+   Responsive Layout (Tablet and Below)
+   - Stack text and image vertically
+   - Center-align text for smaller screens
+=============================== */
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+    padding: 40px 20px;
+  }
+
+  .about-text {
+    text-align: center;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-image {
+    margin-top: 30px;
+  }
+}
+
+/* Animations */
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-image {
+    margin-top: 30px;
+  }
+
+  .about-text {
+    padding: 20px;
+  }
+}
+
+
+/* Projects Section */
+.projects-section {
+  padding: 100px 20px;
+  background: linear-gradient(135deg, #031e69, #000531, #0380b6);
+  background-size: 600% 600%;
+  animation: gradientMove 10s linear infinite;
+  color: #f0f0f0;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+
+/* ===============================
+   Section Title Wrapper
+   - Centers section headings and adds entrance animation
+=============================== */
+.section-title {
+  text-align: center;
+  margin-bottom: 60px;
+  animation: fadeInUp 1s ease-in-out; 
+}
+
+/* ===============================
+   Section Heading (h2)
+   - Large, bold headline with custom color and spacing
+=============================== */
+.section-title h2 {
+  font-size: 44px;
+  font-weight: 800;
+  color: #1a69fc;
+  margin-bottom: 16px;
+  letter-spacing: -1px;
+}
+
+/* ===============================
+   Section Subtitle (p)
+=============================== */
+.section-title p {
+  font-size: 20px;
+  color: #ffffff;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+
+/* Optional fade-in animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===============================
+   Project Wrapper
+   - Main container for each project block
+   - Uses flexbox for side-by-side layout with spacing and wrapping
+=============================== */
+.project-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1100px;
+  margin: 60px auto;
+  gap: 40px;
+  flex-wrap: wrap;
+  padding: 0 20px; /* Add side padding on smaller screens */
+}
+
+/* Reverses layout for alternating project direction */
+.project-wrapper.reverse {
+  flex-direction: row-reverse;
+}
+
+/* ===============================
+   Project Content (Text Section)
+   - Contains project title, description, tech stack
+=============================== */
+.project-content {
+  flex: 1;
+  min-width: 280px;
+}
+
+.project-content h3 {
+  font-size: 36px;
+  margin-bottom: 15px;
+  color: #ffc508;
+}
+
+.project-content p {
+  font-size: 22px;
+  line-height: 1.6;
+  color: #ffffff;
+}
+
+/* Technology stack and icons under each project */
+.project-content span {
+  font-size: 17px;
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  transition: color 0.4s ease;
+}
+
+/* Icon style within the tech stack */
+.project-content span i {
+  font-size: 20px;
+  color: #1abc9c;
+  vertical-align: middle;
+  transition: transform 0.4s ease, color 0.4s ease;
+  cursor: default;
+}
+
+/* Hover effect for icons */
+.project-content span i:hover {
+  color: #0f7a65;
+  transform: scale(1.4) rotate(20deg);
+  cursor: pointer;
+}
+
+/* Hover effect for the text next to icons */
+.project-content span:hover {
+  color: #1abc9c;
+}
+
+/* ===============================
+   Project Media Section
+   - Holds image or embedded video preview of the project
+=============================== */
+.project-media {
+  flex: 1;
+  min-width: 300px;
+  text-align: center;
+}
+
+.project-media img {
+  width: 100%;
+  max-width: 500px;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  margin-bottom: 16px;
+  transition: transform 0.3s ease;
+}
+
+/* Hover zoom effect for images */
+.project-media img:hover {
+  transform: scale(1.03);
+}
+
+/* Embedded video styling */
+.project-media iframe {
+  width: 100%;
+  max-width: 500px;
+  height: 280px;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+}
+
+
+/* Responsive Fix */
+@media (max-width: 992px) {
+  .project-wrapper,
+  .project-wrapper.reverse {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    margin: 40px 16px;
+    padding: 0 10px;
+  }
+
+  .project-content,
+  .project-media {
+    flex: 1 1 100%;
+    text-align: center;
+  }
+
+  .project-content h3 {
+    font-size: 28px;
+  }
+
+  .project-content p {
+    font-size: 18px;
+  }
+
+  .project-content span {
+    font-size: 16px;
+    justify-content: center;
+  }
+}
+
+
+/* Icon styling */
+.skill-icon {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  vertical-align: middle;
+  filter: invert(40%) sepia(100%) saturate(300%) hue-rotate(160deg); /* optional tint */
+}
+
+/* Work Experience Section (Upgraded Design) */
+.experience-section {
+  padding: 100px 20px;
+  background: linear-gradient(135deg, #29094b, #0343a3, #270353);
+  background-size: 400% 400%;
+  animation: experienceGradient 12s ease infinite;
+  color: #f0f8ff;
+}
+
+@keyframes experienceGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* ===============================
+   Experience Container
+   - Main wrapper for experience & certificate sections
+   - Uses flexbox layout with blur, glassmorphism, and subtle gradient
+=============================== */
+.experience-container {
+  position: relative;
+  max-width: 1100px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+  background: linear-gradient(135deg, rgba(255, 184, 108, 0.1), rgba(255, 255, 255, 0.03));
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px);
+  z-index: 1;
+  border: 4px solid transparent;
+  background-clip: padding-box;
+}
+
+/* ===============================
+   Animated Border (on .experience-container)
+   - Glowing rainbow border that loops endlessly
+   - Uses masking technique for smooth outline effect
+=============================== */
+.experience-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 20px;
+  padding: 4px;
+  background: linear-gradient(270deg, #00fff7, #8e2de2, #ff00ff, #ff9a00, #ffffff);
+  background-size: 600% 600%;
+  animation: animateBorderExperience 10s linear infinite;
+  z-index: -1;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: destination-out;
+}
+
+/* Animation for the glowing border */
+@keyframes animateBorderExperience {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* ===============================
+   Experience Media & Certificate Cards
+=============================== */
+.experience-media, .certificate-showcase {
+  flex: 1;
+  min-width: 300px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+/* Hover effect: subtle lift */
+.experience-media:hover, .certificate-showcase:hover {
+  transform: translateY(-6px);
+}
+
+
+
+
+/* ===============================
+   Card Titles (Shared)
+   - Heading style for experience and certificate blocks
+=============================== */
+.experience-media h3,
+.certificate-showcase h3 {
+  font-size: 24px;
+  color: #00eaff;
+  margin-bottom: 20px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* ===============================
+   Media Elements
+   - Video iframe and certificate image styling
+   - Shared layout: rounded corners, shadow, hover scale
+=============================== */
+.experience-media iframe,
+.certificate-showcase img {
+  width: 100%;
+  max-width: 480px;
+  height: 280px;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+/* Hover zoom effect on media */
+.certificate-showcase img:hover,
+.experience-media iframe:hover {
+  transform: scale(1.03);
+}
+
+/* ===============================
+   Responsive Styling (Max-width: 500px)
+   - Adjusts layout for smaller screens
+   - Stacks cards vertically and reduces spacing
+=============================== */
+@media (max-width: 500px) {
+  .experience-section {
+    padding: 60px 12px; /* Less padding on small screens */
+  }
+
+  .experience-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    padding: 20px;
+  }
+
+  .experience-media,
+  .certificate-showcase {
+    width: 100%;
+    padding: 12px;
+  }
+
+  .experience-media h3,
+  .certificate-showcase h3 {
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+
+  .experience-media iframe,
+  .certificate-showcase img {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  }
+
+  /* Disable hover animation on small screens */
+  .experience-media:hover,
+  .certificate-showcase:hover {
+    transform: none;
+  }
+}
+
+
+/* Achievements Section */
+
+.achievements-section {
+  padding: 100px 20px;
+  background: linear-gradient(135deg, #190a37, #431f65, #9333ea);
+  background-size: 500% 500%;
+  animation: achievementGlow 15s ease infinite;
+  color: #f4f8ff;
+}
+
+@keyframes achievementGlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* ===============================
+   Achievement Container
+   - Centers the achievement card with a blurred background
+=============================== */
+.achievement-container {
+  width: 85%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(10px);
+}
+
+/* ===============================
+   Achievement Card
+   - Glassmorphism card with animated gradient border
+=============================== */
+.achievement-card {
+  position: relative;
+  text-align: center;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.06); /* Transparent glass effect */
+  border-radius: 20px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+  max-width: 900px;
+  transition: transform 0.4s ease;
+  z-index: 1;
+  overflow: hidden;
+  border: 3px solid transparent;
+  background-clip: padding-box;
+}
+
+/* ===============================
+   Animated Gradient Border (Before Element)
+   - Glowing animated border using masking technique
+=============================== */
+.achievement-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 3px;
+  background: linear-gradient(270deg, #8e2de2, #00fff7, #1f7aec, #9333ea);
+  background-size: 600% 600%;
+  animation: animateAchievementBorder 12s linear infinite;
+  border-radius: 14px;
+  z-index: -1;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: destination-out;
+}
+
+/* Gradient border animation keyframes */
+@keyframes animateAchievementBorder {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* ===============================
+   Achievement Title
+   - Highlighted card heading with glow effect
+=============================== */
+.achievement-card h3 {
+  color: #00fff7;
+  font-size: 28px;
+  margin-bottom: 20px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* ===============================
+   Certificate Image
+   - Styled image with rounded corners and hover zoom
+=============================== */
+.achievement-card img {
+  width: 100%;
+  max-width: 85%;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
+}
+
+/* Image hover scale effect */
+.achievement-card img:hover {
+  transform: scale(1.06);
+}
+
+/* ===============================
+   Achievement Description
+=============================== */
+.achievement-card p {
+  font-size: 17px;
+  color: #d2e9ff;
+  line-height: 1.8;
+  padding: 0 10px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+
+
+
+
+/* Skills Section */
+.skills-section {
+  padding: 100px 20px;
+  background: linear-gradient(145deg, #210269, #05294d); /* Darker, smoother blend */
+  font-family: 'Poppins', sans-serif;
+}
+
+.section-title h2 {
+  font-size: 40px;
+  font-weight: 800;
+  color: #00b7ff; /* Bright cyan-blue pop */
+  margin-bottom: 12px;
+  text-align: center;
+  letter-spacing: -0.5px;
+}
+
+.section-title p {
+  font-size: 18px;
+  color: #e0f0ff;
+  margin-bottom: 50px;
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  line-height: 1.7;
+}
+
+.skills-container {
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.skills-category {
+  position: relative;
+  border-radius: 18px;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+  z-index: 1;
+}
+
+.skills-category::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 20px;
+  background: linear-gradient(
+    270deg,
+    #00fff7,
+    #8e2de2,
+    #ff00ff,
+    #1e90ff,
+    #00fff7
+  );
+  background-size: 400% 400%;
+  animation: animateBorder 10s linear infinite;
+  z-index: -1;
+}
+
+@keyframes animateBorder {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+.skills-category:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.25);
+}
+
+.skills-category h3 {
+  font-size: 20px;
+  color: #ffffff;
+  margin-bottom: 20px;
+  font-weight: 600;
+  border-bottom: 2px solid #00d4ff;
+  display: inline-block;
+  padding-bottom: 6px;
+}
+
+/* Skill Pills */
+.skill-tags {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.skill-tags li {
+  background: #000a66;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 24px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 162, 255, 0.3);
+}
+
+.skill-tags li:hover {
+  background: #0091e6;
+  transform: scale(1.07);
+  box-shadow: 0 6px 16px rgba(0, 162, 255, 0.4);
+}
+
+
+/* Additional Skills Section */
+.additional-skills-section {
+  padding: 100px 20px;
+  background: linear-gradient(135deg, #0b0f2b, #190a37, #1f1f5c);
+  background-size: 400% 400%;
+  animation: gradientMove 15s ease infinite;
+  color: #e0f7ff;
+  position: relative;
+  overflow: hidden;
+}
+
+.additional-skills-container {
+  max-width: 1100px;
+  margin: 40px auto 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+}
+
+.skill-card {
+  position: relative;
+  padding: 18px 30px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #e0f7ff;
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  z-index: 1;
+  overflow: hidden;
+  text-align: center;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s, box-shadow 0.3s, color 0.3s;
+}
+
+.skill-card::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  background: linear-gradient(270deg, #00fff7, #1f7aec, #9333ea, #ff00ff, #00fff7);
+  background-size: 600% 600%;
+  animation: animateBorderGlow 8s linear infinite;
+  border-radius: 28px;
+  z-index: -1;
+
+  /* Bold border effect using masking */
+  padding: 10px; /* Increase this for thicker border */
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: destination-out;
+}
+
+
+.skill-card:hover {
+  transform: translateY(-6px);
+  color: #00fff7;
+  box-shadow: 0 12px 36px rgba(0, 255, 255, 0.3);
+}
+
+@keyframes animateBorderGlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
+/* Contact Section */
+.contact-wrapper {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-wrapper h2 {
+  font-size: 42px;
+  font-weight: 800;
+  color: #00fff7;
+  margin-bottom: 14px;
+}
+
+.contact-line {
+  width: 70px;
+  height: 4px;
+  background: linear-gradient(90deg, #00fff7, #9333ea);
+  margin-bottom: 24px;
+  border-radius: 4px;
+}
+
+.contact-wrapper p {
+  font-size: 18px;
+  color: #cbd5e1;
+  margin-bottom: 36px;
+  line-height: 1.7;
+}
+
+.contact-section {
+  padding: 100px 20px;
+  background: linear-gradient(135deg, #131f88, #013ab4, #04438a);
+  background-size: 400% 400%;
+  animation: contactGradient 20s ease infinite;
+  color: #ffffff;
+}
+
+@keyframes contactGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.contact-box {
+  margin-bottom: 30px;
+  background-color: transparent;
+  border: 2px solid #00fff7;
+  padding: 14px 24px;
+  border-radius: 12px;
+  color: #00fff7;
+  font-weight: 600;
+  font-size: 18px;
+  transition: background 0.3s;
+}
+
+.contact-box:hover {
+  background-color: #00fff7;
+  color: #1f1f5c;
+}
+
+.email-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.socials {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  margin-top: 16px;
+}
+
+.socials a {
+  font-size: 24px;
+  color: #ffffff;
+  background: #1f1f5c;
+  padding: 14px;
+  border-radius: 50%;
+  transition: 0.3s;
+  box-shadow: 0 6px 18px rgba(0, 255, 255, 0.25);
+}
+
+.socials a:hover {
+  transform: scale(1.2);
+  background: #00fff7;
+  color: #1f1f5c;
+}
+
+
+/* ===============================
+   Footer Base Styling
+   - Dark gradient background with top border and padding
+=============================== */
+.footer {
+  background: linear-gradient(135deg, #040d2a, #000000);
+  color: #e0f7ff;
+  padding: 70px 20px 40px;
+  font-family: 'Poppins', sans-serif;
+  border-top: 2px solid #00fff7;
+}
+
+/* ===============================
+   Footer Content Layout
+   - Responsive flex layout for footer columns
+=============================== */
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 50px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* ===============================
+   Footer Column Styling
+   - Each column can hold text, lists, or contact info
+=============================== */
+.footer-col {
+  flex: 1;
+  min-width: 240px;
+}
+
+/* Column Headings */
+.footer-col h2,
+.footer-col h3 {
+  font-size: 22px;
+  margin-bottom: 18px;
+  color: #00fff7;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Column Paragraph Text */
+.footer-col p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #cce9ff;
+}
+
+/* ===============================
+   Footer Links List
+   - Unstyled list with links
+=============================== */
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+.footer-col ul li {
+  margin-bottom: 12px;
+}
+
+/* Footer Links */
+.footer-col ul li a {
+  color: #cce9ff;
+  text-decoration: none;
+  font-size: 15px;
+  transition: color 0.3s ease;
+}
+
+/* Hover Effect for Links */
+.footer-col ul li a:hover {
+  color: #00fff7;
+  text-shadow: 0 0 8px #00fff7;
+}
+
+/* ===============================
+   Email Highlight Box
+   - Styled box for contact email
+=============================== */
+.footer-col .email {
+  font-size: 16px;
+  color: #aee6ff;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 12px 18px;
+  border-radius: 8px;
+  display: inline-block;
+  margin-top: 10px;
+  border: 1px solid #00fff7;
+  word-break: break-word;
+}
+
+/* ===============================
+   Footer Bottom Line
+   - Bottom message with border and glow text effect
+=============================== */
+.footer-bottom {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 24px;
+  color: #ffc400;
+  text-shadow: 0 0 5px rgba(0, 255, 255, 0.2);
+  border-top: 1px solid #00fff7;
+  padding-top: 20px;
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-col {
+    margin-bottom: 40px;
+  }
+}
+
+
+/* Container Padding for small screens */
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        padding: 0 20px;
+      }
+
+      header .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 16px;
+        padding-top: 10px;
+      }
+    }
+
+    /* For even smaller mobile devices */
+    @media (max-width: 480px) {
+      .logo {
+        font-size: 24px;
+        text-align: center;
+        width: 100%;
+      }
+
+      .about-text h2 {
+        font-size: 28px;
+      }
+
+      .section-title h2 {
+        font-size: 32px;
+      }
+
+      .section-title p,
+      .about-text p,
+      .project-content p {
+        font-size: 16px;
+      }
+
+      .project-content h3,
+      .achievement-card h3,
+      .skills-category h3 {
+        font-size: 22px;
+      }
+
+      .cv-button {
+        font-size: 14px;
+        padding: 12px 20px;
+      }
+
+      .project-media iframe,
+      .project-media img,
+      .experience-media iframe,
+      .certificate-showcase img {
+        height: auto;
+        max-height: 220px;
+      }
+    }
+
+    /* Improve grid responsiveness for skills */
+    @media (max-width: 768px) {
+      .skills-container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Footer improvements */
+    @media (max-width: 600px) {
+      .footer-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        text-align: center;
+      }
+
+      .footer-col ul {
+        padding-left: 0;
+      }
+    }
+
+/* Fix layout for screens between 768px and 1100px (like 1015px) */
+@media (max-width: 1100px) {
+  .container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 16px;
+  }
+
+  .about-container {
+    flex-direction: column;
+    padding: 40px 20px;
+  }
+
+  .about-text {
+    text-align: center;
+  }
+
+  .about-image {
+    margin-bottom: 20px;
+  }
+}
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+    font-size: 26px;
+    cursor: pointer;
+    color: #1f1f5c;
+    z-index: 1002;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;                 /* Put it directly below the header */
+    left: 10px;                /* Nice margin */
+    width: calc(100% - 20px);  /* Full width minus left/right padding */
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 10px 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    z-index: 1001;
+    animation: fadeInMenu 0.3s ease-in-out;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links a {
+    padding: 14px 20px;
+    font-size: 16px;
+    color: #1f1f5c;
+    border-bottom: 1px solid #eee;
+    width: 100%;
+    text-align: left;
+    transition: background 0.3s ease;
+  }
+
+  .nav-links a:last-child {
+    border-bottom: none;
+  }
+
+  .nav-links a:hover {
+    background-color: #f0f5ff;
+    color: #1f7aec;
+  }
+
+  @keyframes fadeInMenu {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .container {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 992px) {
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .about-text,
+  .about-image {
+    flex: unset;
+    width: 100%;
+  }
+
+  .about-image {
+    margin-top: 20px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .about-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1300px;
+    margin: auto;
+    padding: 60px;
+    gap: 40px;
+  }
+
+  .about-text {
+    flex: 1;
+    max-width: 60%;
+    padding-right: 30px;
+    text-align: left;
+  }
+
+  .about-image {
+    flex: 1;
+    max-width: 35%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .about-image img {
+    width: 100%;
+    max-width: 320px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  }
+}
+
+
+@media (max-width: 576px) {
+  .project-wrapper {
+    flex-direction: column !important;
+    align-items: center;
+    padding: 10px;
+    margin: 40px auto;
+    gap: 20px;
+  }
+
+  .project-content p {
+    font-size: 16px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.6;
+    text-align: center;
+  }
+
+  .project-media img,
+  .project-media iframe {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+
+  .project-content span {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    font-size: 14px;
+    text-align: center;
+  }
+}
+
+
+@media (max-width: 992px) {
+  .about-container {
+    padding: 30px 16px; /* Tighten top/bottom, increase left/right */
+  }
+
+  .about-text {
+    padding: 0 16px;  /* Balanced spacing on both sides */
+    text-align: center;
+  }
+
+  .about-text h2 {
+    font-size: 26px;
+    margin-bottom: 18px;
+    text-align: center;
+  }
+
+  .about-text p {
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  .cv-button {
+    margin-top: 16px;
+  }
+
+  .about-image {
+    margin-top: 28px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .about-image img {
+    max-width: 260px;
+    width: 100%;
+    height: auto;
+    border-radius: 14px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  }
+}
+
+
+
+
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+  <h1 class="logo">My PORTFOLIO</h1>
+
+  <div class="menu-toggle" onclick="toggleMenu()">
+    <i class="fas fa-bars"></i>
+  </div>
+
+  <nav class="nav-links">
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#experience">Experience</a>
+    <a href="#achievements">Achievements</a>
+    <a href="#additional-skills">More Skills</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</div>
+
+  </header>
+
+<!-- ===============================
+     About Section
+=============================== -->
+<section id="about" class="about-section">
+  <div class="about-container" data-aos="fade-up">
+
+    <!-- Text content block -->
+    <div class="about-text">
+      <h2>Hello, I’m Zaid Khan</h2>
+      <p>
+        A Full-Stack Developer and <strong>Creative Computing student</strong> passionate about building purposeful digital experiences.
+        I specialize in both front-end and back-end development, creating modern, responsive web apps and websites that combine clean design with solid functionality. 
+      </p>
+      <p>
+          From building interactive web applications to working on WordPress websites for learning and personal use, I love crafting projects that are both functional and beautiful.      </p>
+      <h4>My Goal</h4>
+<p>
+  I’m constantly learning and experimenting with new tools — from <strong>React</strong> and <strong>MongoDB</strong> to other modern web technologies. 
+  My goal is to become a skilled developer who not only writes clean code but also builds solutions that truly make an impact.
+</p>
+
+<h4>My Philosophy</h4>
+<p>
+  I believe in growing through curiosity, staying consistent, and building with intention and empathy.
+</p>
+
+      
+      <!-- CV download button -->
+      <a href="cv.pdf" class="cv-button" target="_blank">View Resume</a>
+    </div>
+
+    <!-- Profile image block -->
+    <div class="about-image">
+      <img src="pic.jpg" alt="Profile Picture">
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- Projects Section -->
+ <section id="projects" class="projects-section">
+<div class="section-title" data-aos="fade-up">
+  <h2>My Projects</h2>
+  <p>Here are some of the creative and technical projects I’ve worked on.</p>
+</div>
+
+  <!-- Project 1 -->
+<div class="project-wrapper" data-aos="fade-right">
+  <div class="project-content">
+    <h3>MoneyTrack</h3>
+<p>MoneyTrack is a full-stack financial tracking web app built as part of a group project. It helps small business owners manage income, expenses, scheduled transactions, and generate reports.</p>
+    <span>
+      Tech: 
+      <i class="fab fa-react" style="color:#61DBFB;"></i> React, 
+      <i class="fab fa-node" style="color:#3C873A;"></i> Node.js, 
+      <i class="fas fa-database" style="color:#4DB33D;"></i> MongoDB 
+      
+    </span>
+  </div>
+  <div class="project-media">
+    <img src="pic7.jpg" alt="MoneyTrack Screenshot">
+<iframe src="https://www.youtube.com/embed/BZR2nZzMjjE" frameborder="0" allowfullscreen></iframe>
+  </div>
+</div>
+
+<!-- Project 2 -->
+<div class="project-wrapper reverse" data-aos="fade-left">
+  <div class="project-content">
+    <h3>2D Unity Game</h3>
+     <p>A fun 2D game built using <strong>Unity</strong> with core mechanics like player movement, obstacles, scoring, and collision detection. Developed using <strong>C#</strong> as part of an academic project in game development.</p>
+    <span>
+      Tech: 
+      <i class="fas fa-gamepad" style="color:#ffd900;"></i> Unity, 
+      <i class="fas fa-code" style="color:#68217A;"></i> C#
+    </span>
+  </div>
+  <div class="project-media">
+    <img src="pic2.png" alt="2D Game Screenshot">
+    <iframe src="https://www.youtube.com/embed/i37k9LLxayA" frameborder="0" allowfullscreen></iframe>
+  </div>
+</div>
+
+<!-- Project 3 -->
+<div class="project-wrapper" data-aos="fade-right">
+  <div class="project-content">
+    <h3>Skincare App</h3>
+    <p>A skincare guidance app built using <strong>Android Studio</strong>, designed to help users learn about different skin types, proper skincare routines, and tips for maintaining healthy skin.</p>
+    <span>
+      Tech: 
+      <i class="fas fa-mobile-alt" style="color:#3DDC84;"></i> Android Studio, 
+      <i class="fab fa-java" style="color:#f89820;"></i> Java
+    </span>
+  </div>
+  <div class="project-media">
+    <img src="pic3.jpg" alt="Skincare App Screenshot">
+    <iframe src="https://www.youtube.com/embed/h7_53sRhs_4" frameborder="0" allowfullscreen></iframe>
+  </div>
+</div>
+
+<!-- Project 4 -->
+<div class="project-wrapper reverse" data-aos="fade-left">
+  <div class="project-content">
+    <h3>Machine Learning Model Comparison</h3>
+    <p>A machine learning project where I trained and evaluated different ML models using <strong>Kaggle</strong>. I visualized the results using graphs to compare the models based on their accuracy scores, helping identify the best-performing algorithm for the given dataset.</p>
+    <span>
+      Tech: 
+      <i class="fab fa-python" style="color:#306998;"></i> Python, 
+      <i class="fas fa-chart-bar" style="color:#ff6384;"></i> Matplotlib, 
+      <i class="fas fa-database" style="color:#4DB33D;"></i> Pandas
+    </span>
+  </div>
+  <div class="project-media">
+    <img src="pic4.webp" alt="ML Project Screenshot">
+    <iframe src="https://www.youtube.com/embed/c-zGk--WHVU" frameborder="0" allowfullscreen></iframe>
+  </div>
+</div>
+
+<!-- Project 5 -->
+<div class="project-wrapper" data-aos="fade-right">
+  <div class="project-content">
+    <h3>TuneUp</h3>
+    <p>A full-stack car maintenance web app where users can log fuel usage, track repairs, view service history, and receive automated reminders. Designed to help users stay on top of their vehicle care with ease.</p>
+    <span>
+      Tech: 
+      <i class="fab fa-node" style="color:#3C873A;"></i> Node.js, 
+      <i class="fas fa-database" style="color:#4DB33D;"></i> MongoDB,
+      <i class="fas fa-server" style="color:#0db7ed;"></i> Express
+    </span>
+  </div>
+  <div class="project-media">
+    <img src="pic8.jpg" alt="TuneUp Screenshot">
+    <iframe src="https://www.youtube.com/embed/fD3JU7JJvNs" frameborder="0" allowfullscreen></iframe>
+  </div>
+</div>
+
+
+<!-- Skills Section -->
+<section id="skills" class="skills-section">
+  <div class="section-title" data-aos="fade-up">
+    <h2>Skills</h2>
+    <p>A blend of technical knowledge and creative tools I’ve mastered over the years.</p>
+  </div>
+
+  <div class="skills-container">
+    <div class="skills-category" data-aos="fade-up" data-aos-delay="100">
+      <h3>Languages</h3>
+      <ul class="skill-tags">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+        <li>Python</li>
+      </ul>
+    </div>
+
+    <div class="skills-category" data-aos="fade-up" data-aos-delay="200">
+      <h3>Tools & Frameworks</h3>
+      <ul class="skill-tags">
+        <li>React</li>
+        <li>Node.js</li>
+        <li>MongoDB</li>
+        <li>Figma</li>
+        <li>Canva</li>
+      </ul>
+    </div>
+
+    <div class="skills-category" data-aos="fade-up" data-aos-delay="300">
+      <h3>Soft Skills</h3>
+      <ul class="skill-tags">
+        <li>Creativity</li>
+        <li>Teamwork</li>
+        <li>Time Management</li>
+        <li>Problem Solving</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+<!-- Work Experience Section -->
+<section id="experience" class="experience-section">
+  <div class="section-title" data-aos="fade-up">
+    <h2>Work Experience</h2>
+    <p>Here's a glimpse of my experience and certifications that showcase my growth and learning in the industry.</p>
+  </div>
+
+  <div class="experience-container">
+    <!-- Video Part -->
+    <div class="experience-media" data-aos="fade-right">
+      <h3>Workplace Demo</h3>
+<iframe src="https://www.youtube.com/embed/9qBOJ3Q8l34" frameborder="0" allowfullscreen></iframe>
+    </div>
+
+    <!-- Certificate Part -->
+    <div class="certificate-showcase" data-aos="fade-left">
+      <h3>Certificate of Achievement</h3>
+      <img src="pic5.jpg" alt="Certificate Image">
+    </div>
+  </div>
+</section>
+
+<!-- Achievements Section -->
+<section id="achievements" class="achievements-section">
+  <div class="section-title" data-aos="fade-up">
+    <h2>Achievements</h2>
+    <p>Recognized for academic excellence and outstanding performance in my final year.</p>
+  </div>
+
+  <div class="achievement-container" data-aos="zoom-in">
+    <div class="achievement-card">
+      <h3>Certificate of Excellence – Year 3</h3>
+      <img src="pic6.jpg" alt="Certificate of Excellence">
+      <p>Received for scoring top grades in my final year of BSc (Hons) Creative Computing.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Additional Skills Section -->
+<section id="additional-skills" class="additional-skills-section">
+  <div class="section-title" data-aos="fade-up">
+    <h2>Additional Skills</h2>
+    <p>Supporting skills that enhance my creative and technical capabilities.</p>
+  </div>
+
+  <div class="additional-skills-container" data-aos="zoom-in">
+    <div class="skill-card">WordPress CMS</div>
+    <div class="skill-card">Basic SEO</div>
+    <div class="skill-card">Technical SEO</div>
+    <div class="skill-card">Content Management</div>
+    <div class="skill-card">Page Speed Optimization</div>
+    <div class="skill-card">Responsive Web Design</div>
+  </div>
+</section>
+
+<!-- Contact Me Section -->
+<section id="contact" class="contact-section">
+  <div class="contact-wrapper" data-aos="fade-up">
+    <h2>Let’s Get in Touch</h2>
+    <div class="contact-line"></div>
+    <p>
+      I'm open to opportunities, collaborations, and creative challenges.<br />
+      Feel free to reach out.
+    </p>
+
+    <div class="contact-box">
+      <a href="mailto:zaidbathspa.ae@gmail.com" class="email-link">zaidbathspa.ae@gmail.com</a>
+    </div>
+
+    <div class="socials">
+      <a href="https://www.linkedin.com/in/zaid-khan-6a674a33a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" aria-label="LinkedIn">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+      <a href="https://github.com/zee321123" target="_blank" aria-label="GitHub">
+        <i class="fab fa-github"></i>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="footer-content">
+    <!-- Left: Branding -->
+    <div class="footer-col">
+      <h2>My Portfolio</h2>
+      <p>A place where creativity meets technology.<br>Exploring ideas, building visions, and coding them into reality.</p>
+    </div>
+
+    <!-- Middle: Quick Links -->
+    <div class="footer-col">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Right: Connect -->
+    <div class="footer-col">
+      <h3>Let's Connect</h3>
+      <p class="email">zaidbathspa.ae@gmail.com</p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 Zaid Khan — All rights reserved.</p>
+  </div>
+</footer>
+
+
+
+
+
+<script>
+  function toggleMenu() {
+    document.querySelector(".nav-links").classList.toggle("active");
+  }
+</script>
+
+
+<script>
+  AOS.init({
+    duration: 1000, // animation duration in ms
+    once: true      // whether animation should happen only once - while scrolling down
+  });
+</script>
+
+
+</body>
+</html>
